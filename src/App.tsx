@@ -14,7 +14,7 @@ function App() {
   const [activeSection, setActiveSection] = useState('hero')
 
   return (
-    <div className="min-h-screen bg-archflow-base text-archflow-text font-sans">
+    <div className="min-h-screen font-sans">
       <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
 
       <main>

@@ -19,6 +19,11 @@ export default {
           surface: '#152138',    // Azul quase preto (cards/borders)
           text: '#FFFFFF',       // Branco puro
           textMuted: '#B6C2E2',  // Texto secundário
+          // Light theme colors
+          light: '#F8FAFC',      // Light background sections
+          neutral: '#F1F5F9',    // Neutral light gray
+          textDark: '#0E1A2B',   // Primary text on light
+          textDarkMuted: '#64748B', // Secondary text on light
         }
       },
       fontFamily: {

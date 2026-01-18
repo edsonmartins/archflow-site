@@ -5,7 +5,7 @@
 /* Archflow Design System */
 @layer base {
   :root {
-    /* Archflow Palette */
+    /* Archflow Palette - Dark Theme */
     --color-archflow-base: #0E1A2B;
     --color-archflow-deep: #1F3C88;
     --color-archflow-deep-light: #2459C7;
@@ -16,6 +16,12 @@
     --color-archflow-surface: #152138;
     --color-archflow-text: #FFFFFF;
     --color-archflow-text-muted: #B6C2E2;
+
+    /* Archflow Palette - Light Theme */
+    --color-archflow-light: #F8FAFC;
+    --color-archflow-neutral: #F1F5F9;
+    --color-archflow-text-dark: #0E1A2B;
+    --color-archflow-text-dark-muted: #64748B;
 
     /* Spacing */
     --spacing-section: 5rem;

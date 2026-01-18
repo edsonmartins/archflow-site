@@ -28,135 +28,126 @@ export function Hero({ setActiveSection }: { setActiveSection: (s: string) => vo
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-grid"
+      className="relative min-h-screen flex items-center overflow-hidden"
+      style={{ backgroundColor: '#0E1A2B' }}
     >
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-archflow-primary/10 rounded-full blur-3xl" />
+      {/* Radial depth behind video (right side) */}
+      <div
+        className="absolute top-1/2 right-0 -translate-y-1/2 w-[800px] h-[800px] opacity-100 pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle at right center, rgba(47,128,237,0.12), transparent 60%)',
+        }}
+      />
 
       {/* Content */}
       <div className="container mx-auto px-6 py-20 relative z-10">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-          className="max-w-4xl mx-auto text-center"
-        >
-          {/* Badge */}
-          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-archflow-surface border-deep mb-8">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-archflow-accent opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-archflow-accent"></span>
-            </span>
-            <span className="text-sm text-archflow-text-muted">
-              First Visual AI Builder for Java Teams
-            </span>
-          </motion.div>
-
-          {/* Headline */}
-          <motion.h1
-            variants={itemVariants}
-            className="text-5xl md:text-7xl font-bold text-archflow-text mb-6 leading-tight"
-          >
-            Build AI Workflows
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-archflow-primary via-archflow-accent to-archflow-accentLight">
-              Visually. Deploy as Java.
-            </span>
-          </motion.h1>
-
-          {/* Subheadline */}
-          <motion.p
-            variants={itemVariants}
-            className="text-xl md:text-2xl text-archflow-text-muted mb-10 max-w-2xl mx-auto leading-relaxed"
-          >
-            The first visual AI builder that's Java-native. Drag-and-drop workflows
-            deployed as Spring Boot apps. Framework-agnostic UI that works everywhere.
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div variants={itemVariants} className="flex flex-wrap gap-4 justify-center mb-16">
-            <a
-              href="#pricing"
-              className="bg-cta text-white px-8 py-4 rounded-lg text-base font-medium hover:bg-cta-hover transition-all hover:shadow-lg hover:shadow-archflow-primary/30 hover:-translate-y-0.5"
-              onClick={() => setActiveSection('pricing')}
-            >
-              Start Building Free
-            </a>
-            <a
-              href="https://github.com/archflow/archflow"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border-deep text-archflow-text px-8 py-4 rounded-lg text-base font-medium hover:bg-archflow-surface hover:border-archflow-primary transition-all hover:-translate-y-0.5"
-            >
-              View on GitHub
-            </a>
-          </motion.div>
-
-          {/* Code Preview */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left side - Text content */}
           <motion.div
-            variants={itemVariants}
-            className="relative max-w-2xl mx-auto"
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className="max-w-xl"
           >
-            <div className="absolute -inset-1 bg-gradient-to-r from-archflow-primary/20 via-archflow-accent/20 to-archflow-accentLight/20 rounded-xl blur-xl" />
-            <div className="relative bg-archflow-surface rounded-xl border-deep overflow-hidden">
-              {/* Header bar */}
-              <div className="flex items-center justify-between px-4 py-3 border-b border-archflow-primary/20">
-                <div className="flex items-center gap-2">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-500" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                    <div className="w-3 h-3 rounded-full bg-green-500" />
-                  </div>
-                  <span className="text-xs text-archflow-text-muted font-mono">app.tsx</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <button className="text-archflow-text-muted hover:text-white transition-colors">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012 2v8a2 2 0 002 2h8a2 2 0 002-2v-8a2 2 0 01-2-2z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </button>
-                  <button className="text-archflow-text-muted hover:text-white transition-colors">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4m-4-4h12" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
+            {/* Badge */}
+            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8" style={{ backgroundColor: '#152138', border: '1px solid rgba(47,128,237,0.2)' }}>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: '#2ED8C3' }}></span>
+                <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: '#2ED8C3' }}></span>
+              </span>
+              <span className="text-sm" style={{ color: '#B6C2E2' }}>
+                First Visual AI Builder for Java Teams
+              </span>
+            </motion.div>
 
-              {/* Code */}
-              <pre className="p-4 text-sm overflow-x-auto">
-                <code className="text-archflow-text-muted font-mono">
-                  <span className="text-archflow-accent">{'<'}</span>
-                  <span className="text-archflow-primary">archflow-designer</span>
-                  <span className="text-archflow-text">{'\n  workflow-id='}</span>
-                  <span className="text-archflow-accent">customer-support</span>
-                  <span className="text-archflow-text">{"'\n  api-base='https://api.archflow.com'\n  theme='dark'"}</span>
-                  <span className="text-archflow-text">{'>\n\n'}</span>
-                  <span className="text-archflow-primary">script</span>
-                  <span className="text-archflow-text">{'\n  const designer = document.querySelector(\'archflow-designer\')\n  designer.addEventListener(\'workflow-saved\', (e) => {\n    console.log(\'Workflow saved:\', e.detail)\n  })\n'}</span>
-                  <span className="text-archflow-accent">{'</'}</span>
-                  <span className="text-archflow-primary">archflow-designer</span>
-                  <span className="text-archflow-text">{'>'}</span>
-                </code>
-              </pre>
+            {/* Headline */}
+            <motion.h1
+              variants={itemVariants}
+              className="text-5xl md:text-6xl font-bold mb-6 leading-tight"
+              style={{ color: '#FFFFFF' }}
+            >
+              Build AI Workflows
+              <span className="block" style={{
+                background: 'linear-gradient(135deg, #2F80ED 0%, #2ED8C3 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}>
+                Visually. Deploy as Java.
+              </span>
+            </motion.h1>
 
-              {/* Footer bar */}
-              <div className="flex items-center justify-between px-4 py-2 border-t border-archflow-primary/20 bg-archflow-base/50">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-xs text-archflow-text-muted">Ready to integrate</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="text-xs text-archflow-text-muted">React</span>
-                  <span className="text-xs text-archflow-text-muted">•</span>
-                  <span className="text-xs text-archflow-text-muted">Vue</span>
-                  <span className="text-xs text-archflow-text-muted">•</span>
-                  <span className="text-xs text-archflow-text-muted">Angular</span>
-                </div>
-              </div>
+            {/* Subheadline */}
+            <motion.p
+              variants={itemVariants}
+              className="text-xl md:text-2xl mb-10 leading-relaxed"
+              style={{ color: '#B6C2E2' }}
+            >
+              The first visual AI builder that's Java-native. Drag-and-drop workflows
+              deployed as Spring Boot apps. Framework-agnostic UI that works everywhere.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mb-16">
+              <a
+                href="#pricing"
+                onClick={() => setActiveSection('pricing')}
+                className="text-white px-8 py-4 rounded-lg text-base font-medium transition-all hover:shadow-lg hover:-translate-y-0.5"
+                style={{
+                  background: 'linear-gradient(135deg, #2F80ED 0%, #2ED8C3 100%)',
+                }}
+              >
+                Start Building Free
+              </a>
+              <a
+                href="https://github.com/edsonmartins/archflow"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 rounded-lg text-base font-medium transition-all hover:-translate-y-0.5"
+                style={{
+                  color: '#FFFFFF',
+                  border: '1px solid rgba(47,128,237,0.2)',
+                  backgroundColor: 'transparent',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#152138'
+                  e.currentTarget.style.borderColor = 'rgba(47,128,237,0.4)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent'
+                  e.currentTarget.style.borderColor = 'rgba(47,128,237,0.2)'
+                }}
+              >
+                View on GitHub
+              </a>
+            </motion.div>
+          </motion.div>
+
+          {/* Right side - Video */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="relative"
+          >
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl"
+              style={{
+                boxShadow: '0 25px 50px -12px rgba(47, 128, 237, 0.25)'
+              }}
+            >
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-auto rounded-2xl"
+                style={{ display: 'block' }}
+              >
+                <source src="/images/video_A.mp4" type="video/mp4" />
+              </video>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Scroll indicator */}
@@ -164,7 +155,8 @@ export function Hero({ setActiveSection }: { setActiveSection: (s: string) => vo
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-archflow-text-muted"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        style={{ color: '#B6C2E2' }}
       >
         <span className="text-xs">Scroll to explore</span>
         <motion.div
@@ -172,7 +164,7 @@ export function Hero({ setActiveSection }: { setActiveSection: (s: string) => vo
           transition={{ duration: 1.5, repeat: Infinity }}
           className="w-5 h-8 flex items-center justify-center"
         >
-          <svg className="w-5 h-5 text-archflow-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" fill="none" stroke="#2F80ED" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7l-7-7" />
           </svg>
         </motion.div>

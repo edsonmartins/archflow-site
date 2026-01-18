@@ -1,12 +1,5 @@
 import { motion } from 'framer-motion'
 
-const companies = [
-  { name: 'FinTech Corp', type: 'fintech' },
-  { name: 'BankTech Solutions', type: 'banking' },
-  { name: 'HealthCare AI', type: 'healthcare' },
-  { name: 'GovTech Systems', type: 'government' },
-]
-
 export function SocialProof() {
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -22,67 +15,100 @@ export function SocialProof() {
   }
 
   return (
-    <section className="py-20 bg-archflow-base border-t border-deep">
+    <section
+      className="py-20 border-t"
+      style={{ backgroundColor: '#0E1A2B', borderColor: 'rgba(47,128,237,0.15)' }}
+    >
       <div className="container mx-auto px-6">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-2xl font-semibold text-archflow-text mb-4">
-            Trusted by Java teams at
-          </h2>
-          <p className="text-archflow-text-muted max-w-2xl mx-auto">
-            From fintech to healthcare, teams building production-ready AI with archflow
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
           variants={itemVariants}
-          className="flex flex-wrap justify-center gap-x-12 gap-y-8"
+          className="max-w-3xl mx-auto"
         >
-          {companies.map((company, index) => (
-            <motion.div
-              key={company.name}
-              variants={itemVariants}
-              transition={{ delay: index * 0.1 }}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-archflow-surface border-deep hover:border-archflow-primary/30 transition-all hover:-translate-y-1"
-            >
-              <div className="w-8 h-8 rounded bg-gradient-to-br from-archflow-primary to-archflow-accent flex items-center justify-center text-white text-sm font-bold">
-                {company.name.charAt(0)}
-              </div>
-              <span className="text-sm text-archflow-text-muted">{company.name}</span>
-            </motion.div>
-          ))}
-        </motion.div>
+          {/* Code Preview Card */}
+          <div className="relative">
+            {/* Gradient glow */}
+            <div
+              className="absolute -inset-1 rounded-xl blur-xl"
+              style={{
+                background: 'linear-gradient(to right, rgba(47,128,237,0.2), rgba(46,216,195,0.2), rgba(62,224,197,0.2))',
+              }}
+            />
 
-        {/* Stats */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 max-w-4xl mx-auto"
-        >
-          {[
-            { value: '70%', label: 'of enterprise apps run on JVM' },
-            { value: '50%', label: 'of AI devs already use Java' },
-            { value: '3x', label: 'faster AI delivery with visual builder' },
-            { value: '$0', label: 'infrastructure changes needed' },
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              transition={{ delay: index * 0.1 }}
-              className="text-center"
+            {/* Code window */}
+            <div
+              className="relative rounded-xl overflow-hidden"
+              style={{ backgroundColor: '#152138', border: '1px solid rgba(47,128,237,0.2)' }}
             >
-              <div className="text-3xl font-bold text-archflow-accent mb-1">{stat.value}</div>
-              <div className="text-sm text-archflow-text-muted">{stat.label}</div>
-            </motion.div>
-          ))}
+              {/* Header bar */}
+              <div
+                className="flex items-center justify-between px-4 py-3"
+                style={{ borderBottom: '1px solid rgba(47,128,237,0.2)' }}
+              >
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#EF4444' }} />
+                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#F59E0B' }} />
+                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#10B981' }} />
+                  </div>
+                  <span className="text-xs font-mono" style={{ color: '#B6C2E2' }}>App.tsx</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button className="transition-colors" style={{ color: '#B6C2E2' }}>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </button>
+                  <button className="transition-colors" style={{ color: '#B6C2E2' }}>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4m-4-4h12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              {/* Code */}
+              <pre className="p-4 text-sm overflow-x-auto">
+                <code className="font-mono" style={{ color: '#B6C2E2' }}>
+                  <span style={{ color: '#2ED8C3' }}>{'<'}</span>
+                  <span style={{ color: '#2F80ED' }}>archflow-designer</span>
+                  <span style={{ color: '#FFFFFF' }}>{'\n  workflow-id='}</span>
+                  <span style={{ color: '#2ED8C3' }}>customer-support</span>
+                  <span style={{ color: '#FFFFFF' }}>{"'\n  api-base='https://api.archflow.com'\n  theme='dark'"}</span>
+                  <span style={{ color: '#FFFFFF' }}>{'>\n\n'}</span>
+                  <span style={{ color: '#2F80ED' }}>script</span>
+                  <span style={{ color: '#FFFFFF' }}>{'\n  const designer = document.querySelector(\'archflow-designer\')\n  designer.addEventListener(\'workflow-saved\', (e) => {\n    console.log(\'Workflow saved:\', e.detail)\n  })\n'}</span>
+                  <span style={{ color: '#2ED8C3' }}>{'</'}</span>
+                  <span style={{ color: '#2F80ED' }}>archflow-designer</span>
+                  <span style={{ color: '#FFFFFF' }}>{'>'}</span>
+                </code>
+              </pre>
+
+              {/* Footer bar */}
+              <div
+                className="flex items-center justify-between px-4 py-2"
+                style={{
+                  borderTop: '1px solid rgba(47,128,237,0.2)',
+                  backgroundColor: 'rgba(14, 26, 43, 0.5)',
+                }}
+              >
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: '#10B981' }} />
+                  <span className="text-xs" style={{ color: '#B6C2E2' }}>Ready to integrate</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-xs" style={{ color: '#B6C2E2' }}>React</span>
+                  <span className="text-xs" style={{ color: '#B6C2E2' }}>•</span>
+                  <span className="text-xs" style={{ color: '#B6C2E2' }}>Vue</span>
+                  <span className="text-xs" style={{ color: '#B6C2E2' }}>•</span>
+                  <span className="text-xs" style={{ color: '#B6C2E2' }}>Angular</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

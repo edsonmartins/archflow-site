@@ -19,19 +19,21 @@ export function Navbar({ activeSection, setActiveSection }: { activeSection: str
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style={
         isScrolled
-          ? 'bg-archflow-base/95 backdrop-blur-md border-deep'
-          : 'bg-transparent'
-      }`}
+          ? { backgroundColor: 'rgba(14, 26, 43, 0.95)', borderBottom: '1px solid rgba(47,128,237,0.15)', backdropFilter: 'blur(12px)' }
+          : { backgroundColor: 'transparent' }
+      }
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-archflow-primary to-archflow-accent flex items-center justify-center text-white font-bold text-lg group-hover:scale-105 transition-transform">
-            A
-          </div>
-          <span className="text-xl font-semibold text-white">archflow</span>
+          <img
+            src="/images/archflow_fundo_escuro.png"
+            alt="ArchFlow"
+            className="h-20 w-auto group-hover:scale-105 transition-transform"
+          />
         </a>
 
         {/* Navigation */}
@@ -41,9 +43,12 @@ export function Navbar({ activeSection, setActiveSection }: { activeSection: str
               key={link.id}
               href={`#${link.id}`}
               onClick={() => setActiveSection(link.id)}
-              className={`text-sm font-medium transition-colors hover:text-archflow-primary ${
-                activeSection === link.id ? 'text-archflow-accent' : 'text-archflow-text-muted'
-              }`}
+              className="text-sm font-medium transition-colors hover:opacity-80"
+              style={
+                activeSection === link.id
+                  ? { color: '#2ED8C3' }
+                  : { color: '#B6C2E2' }
+              }
             >
               {link.label}
             </a>
@@ -53,16 +58,28 @@ export function Navbar({ activeSection, setActiveSection }: { activeSection: str
         {/* CTA */}
         <div className="flex items-center gap-4">
           <a
-            href="https://github.com/archflow/archflow"
+            href="https://github.com/edsonmartins/archflow"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-archflow-text-muted hover:text-white transition-colors"
+            className="transition-colors hover:opacity-80"
+            style={{ color: '#B6C2E2' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = '#FFFFFF'}
+            onMouseLeave={(e) => e.currentTarget.style.color = '#B6C2E2'}
           >
             <Github className="w-5 h-5" />
           </a>
           <a
             href="#pricing"
-            className="bg-cta text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-cta-hover transition-all hover:shadow-lg hover:shadow-archflow-primary/30"
+            className="text-white px-5 py-2 rounded-lg text-sm font-medium transition-all hover:shadow-lg hover:-translate-y-0.5"
+            style={{
+              background: 'linear-gradient(135deg, #2F80ED 0%, #2ED8C3 100%)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.boxShadow = '0 10px 25px rgba(47,128,237,0.3)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.boxShadow = 'none'
+            }}
           >
             Get Started
           </a>
