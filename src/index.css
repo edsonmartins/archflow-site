@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Archflow Design System */
+@layer base {
+  :root {
+    /* Archflow Palette */
+    --color-archflow-base: #0E1A2B;
+    --color-archflow-deep: #1F3C88;
+    --color-archflow-deep-light: #2459C7;
+    --color-archflow-primary: #2F80ED;
+    --color-archflow-primary-light: #3A7BFF;
+    --color-archflow-accent: #2ED8C3;
+    --color-archflow-accent-light: #3FE0C5;
+    --color-archflow-surface: #152138;
+    --color-archflow-text: #FFFFFF;
+    --color-archflow-text-muted: #B6C2E2;
+
+    /* Spacing */
+    --spacing-section: 5rem;
+    --spacing-component: 1.5rem;
+  }
+}
+
+@layer components {
+  /* Border Depth System */
+  .border-deep {
+    border: 1px solid rgba(47, 128, 237, 0.2);
+  }
+
+  .border-accent {
+    border: 1px solid rgba(46, 216, 195, 0.3);
+  }
+
+  /* Gradient CTA (Official archflow gradient) */
+  .bg-cta {
+    background: linear-gradient(135deg, #2F80ED 0%, #2ED8C3 100%);
+  }
+
+  .bg-cta-hover {
+    background: linear-gradient(135deg, #2459C7 0%, #2ED8C3 100%);
+  }
+
+  /* Subtle grid pattern */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(47, 128, 237, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(47, 128, 237, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Glow effects */
+  .glow-subtle {
+    box-shadow: 0 0 60px -15px rgba(47, 128, 237, 0.3);
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 60px -15px rgba(46, 216, 195, 0.4);
+  }
+}
+
+/* Typography */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0E1A2B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2F80ED;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3A7BFF;
+}
+
+/* Animation utilities */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+/* Stagger children animation */
+.stagger-children > * {
+  opacity: 0;
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
